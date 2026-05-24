@@ -1,17 +1,14 @@
 <div class="altrd-categories-section">
   <div class="altrd-categories-scroll">
     <div class="altrd-categories-inner">
-      {%- assign pill_links = section.settings.pill_links -%}
-      {%- assign pill_labels = section.settings.pill_labels | split: ',' -%}
-      {%- assign pill_urls = section.settings.pill_urls | split: ',' -%}
-
       {%- assign default_pills = "All,New Arrivals,Tees,Hoodies,Shirts,Co-ords,Bottomwear,Women,Men" | split: ',' -%}
       {%- assign default_paths = "/collections/all,/collections/new-arrivals,/collections/tees,/collections/hoodies,/collections/shirts,/collections/co-ords,/collections/bottomwear,/collections/women,/collections/men" | split: ',' -%}
 
       {%- for label in default_pills -%}
         {%- assign pill_url = default_paths[forloop.index0] -%}
+        {%- assign pill_slug = label | downcase | replace: ' ', '-' -%}
         {%- assign is_active = false -%}
-        {%- if collection and collection.handle == label | downcase | replace: ' ', '-' -%}
+        {%- if collection and collection.handle == pill_slug -%}
           {%- assign is_active = true -%}
         {%- endif -%}
         <a
