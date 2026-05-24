@@ -3595,3 +3595,1369 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   ALTRD STORE — BRAND DESIGN SYSTEM
+   Premium Indian Streetwear · Drop Culture · No Apologies
+═══════════════════════════════════════════════════════════════ */
+
+/* ── BRAND TOKENS ── */
+:root {
+  --altrd-black: #0A0A0A;
+  --altrd-white: #F5F0EB;
+  --altrd-gray-dark: #1A1A1A;
+  --altrd-gray-mid: #2C2C2C;
+  --altrd-gray-light: #F0EDE8;
+  --altrd-pure-white: #FFFFFF;
+  --altrd-muted: #888888;
+  --altrd-border-light: rgba(0, 0, 0, 0.08);
+  --altrd-border-dark: rgba(255, 255, 255, 0.10);
+}
+
+/* ── GLOBAL TYPOGRAPHY OVERRIDE ── */
+body,
+.altrd-body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* ── BUTTON SYSTEM ── */
+.button,
+.btn,
+button[type="submit"]:not(.newsletter-form__button):not(.slider-button):not(.quantity__button):not(.quick-add-modal__toggle):not(.product-popup-modal__toggle),
+.shopify-payment-button__button,
+.cart__checkout-button {
+  border-radius: 0 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  transition: all 0.22s ease !important;
+}
+
+.button--primary,
+.button:not(.button--secondary):not(.button--tertiary) {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+  border: 1.5px solid var(--altrd-black) !important;
+  border-radius: 0 !important;
+}
+.button--primary:hover,
+.button:not(.button--secondary):not(.button--tertiary):hover {
+  background: transparent !important;
+  color: var(--altrd-black) !important;
+}
+
+.button--secondary {
+  background: transparent !important;
+  color: var(--altrd-black) !important;
+  border: 1.5px solid var(--altrd-black) !important;
+  border-radius: 0 !important;
+}
+.button--secondary:hover {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+}
+
+/* Generic reusable button classes */
+.altrd-btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--altrd-black);
+  color: var(--altrd-white);
+  border: 1.5px solid var(--altrd-black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.altrd-btn-primary:hover {
+  background: transparent;
+  color: var(--altrd-black);
+}
+
+.altrd-btn-ghost {
+  display: inline-block;
+  padding: 14px 36px;
+  background: transparent;
+  color: var(--altrd-black);
+  border: 1.5px solid var(--altrd-black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.altrd-btn-ghost:hover {
+  background: var(--altrd-black);
+  color: var(--altrd-white);
+}
+
+/* ── ANNOUNCEMENT BAR TICKER ── */
+@keyframes altrd-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.altrd-ticker-bar {
+  background: var(--altrd-black);
+  height: 38px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 210;
+}
+
+.altrd-ticker-overflow {
+  overflow: hidden;
+  width: 100%;
+}
+
+.altrd-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: altrd-ticker 25s linear infinite;
+  gap: 0;
+}
+
+.altrd-ticker-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--altrd-white);
+  padding: 0 40px;
+}
+
+.altrd-ticker-sep {
+  color: rgba(245, 240, 235, 0.4);
+  font-size: 10px;
+  padding: 0 4px;
+}
+
+/* ── GLASSMORPHISM HEADER ── */
+.altrd-header {
+  position: fixed !important;
+  top: 38px;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease !important;
+}
+
+body.header-scrolled .altrd-header {
+  background: rgba(245, 240, 235, 0.96) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Offset announcement bar + header for sticky layout */
+.shopify-section-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.announcement-bar-section {
+  position: sticky;
+  top: 0;
+  z-index: 210;
+}
+
+.template-index #MainContent {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Nav links: white over dark hero */
+.altrd-header .header__menu-item,
+.altrd-header .header__menu-item a,
+.altrd-header .header__menu-item span,
+.altrd-header nav > ul > li > a {
+  color: #F5F0EB !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  transition: opacity 0.3s ease !important;
+}
+.altrd-header .header__menu-item a:hover { opacity: 0.6 !important; }
+
+body.header-scrolled .altrd-header .header__menu-item,
+body.header-scrolled .altrd-header .header__menu-item a,
+body.header-scrolled .altrd-header .header__menu-item span,
+body.header-scrolled .altrd-header nav > ul > li > a {
+  color: var(--altrd-black) !important;
+}
+
+/* Icons colour switch */
+.altrd-header .header__icon,
+.altrd-header .header__icon svg path,
+.altrd-header .header__icon svg {
+  color: #F5F0EB !important;
+  fill: #F5F0EB !important;
+  stroke: #F5F0EB !important;
+  transition: color 0.3s ease, fill 0.3s ease, stroke 0.3s ease !important;
+}
+body.header-scrolled .altrd-header .header__icon,
+body.header-scrolled .altrd-header .header__icon svg path,
+body.header-scrolled .altrd-header .header__icon svg {
+  color: var(--altrd-black) !important;
+  fill: var(--altrd-black) !important;
+  stroke: var(--altrd-black) !important;
+}
+
+/* Shop name / text logo */
+.altrd-header .header__heading-link span,
+.altrd-header .header__heading-link {
+  color: #F5F0EB !important;
+  transition: color 0.3s ease !important;
+}
+body.header-scrolled .altrd-header .header__heading-link span,
+body.header-scrolled .altrd-header .header__heading-link {
+  color: var(--altrd-black) !important;
+}
+
+/* Logo image colour switch */
+.altrd-header .header__heading-logo {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+body.header-scrolled .altrd-header .header__heading-logo {
+  filter: none;
+}
+
+/* Cart bubble */
+.altrd-header .cart-count-bubble {
+  background: #F5F0EB !important;
+  color: var(--altrd-black) !important;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+body.header-scrolled .altrd-header .cart-count-bubble {
+  background: var(--altrd-black) !important;
+  color: #F5F0EB !important;
+}
+
+/* ── HERO SECTION ── */
+.altrd-hero-section {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  margin-top: 0;
+}
+
+.altrd-hero-section + * { margin-top: 0; }
+
+.altrd-hero-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 235, 0.65);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.altrd-hero-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 14vw, 12rem);
+  line-height: 0.88;
+  letter-spacing: 0.01em;
+  color: #F5F0EB;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  margin-top: 0;
+}
+
+.altrd-hero-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(245, 240, 235, 0.7);
+  margin-bottom: 36px;
+  max-width: 380px;
+  line-height: 1.6;
+}
+
+.altrd-hero-cta-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.altrd-hero-btn-primary {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1.5px solid #F5F0EB;
+  color: #F5F0EB;
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.altrd-hero-btn-primary:hover {
+  background: #F5F0EB;
+  color: var(--altrd-black);
+}
+
+.altrd-hero-btn-ghost {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1.5px solid rgba(245, 240, 235, 0.4);
+  color: rgba(245, 240, 235, 0.75);
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.altrd-hero-btn-ghost:hover {
+  border-color: #F5F0EB;
+  color: #F5F0EB;
+}
+
+/* Hero wrapper removes Dawn section padding */
+.altrd-hero-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ── MARQUEE STRIP ── */
+@keyframes altrd-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.altrd-marquee-section {
+  background: var(--altrd-black);
+  height: 52px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.altrd-marquee-overflow {
+  overflow: hidden;
+  width: 100%;
+}
+
+.altrd-marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: altrd-marquee 30s linear infinite;
+  gap: 0;
+}
+
+.altrd-marquee-track span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: var(--altrd-white);
+  padding: 0 20px;
+}
+
+.altrd-marquee-sep {
+  color: rgba(245, 240, 235, 0.35) !important;
+  padding: 0 4px !important;
+}
+
+.altrd-marquee-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ── CATEGORY PILLS ── */
+.altrd-categories-section {
+  background: var(--altrd-pure-white);
+  border-bottom: 1px solid var(--altrd-border-light);
+  position: sticky;
+  top: 100px;
+  z-index: 90;
+}
+
+.altrd-categories-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.altrd-categories-scroll::-webkit-scrollbar { display: none; }
+
+.altrd-categories-inner {
+  display: inline-flex;
+  gap: 10px;
+  padding: 16px 40px;
+  white-space: nowrap;
+}
+
+.altrd-category-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 40px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--altrd-black);
+  text-decoration: none;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.altrd-category-pill:hover,
+.altrd-category-pill--active {
+  background: var(--altrd-black);
+  color: var(--altrd-white);
+  border-color: var(--altrd-black);
+}
+
+.altrd-categories-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ── PRODUCT GRID (shared: homepage + collection) ── */
+.product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2px !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 989px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 479px) {
+  .product-grid { gap: 1px !important; }
+}
+
+/* Full-width product section */
+.collection--full-width .product-grid,
+.collection--full-width .slider {
+  padding: 0 !important;
+}
+
+/* ── PRODUCT CARD ── */
+.product-card-wrapper {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: hidden;
+  background: var(--altrd-pure-white);
+  position: relative;
+}
+
+.card--standard,
+.card--card {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Card image area */
+.card__inner {
+  border-radius: 0 !important;
+  overflow: hidden;
+  background: var(--altrd-gray-light);
+  position: relative;
+}
+
+.card__media {
+  border-radius: 0 !important;
+  overflow: hidden;
+}
+
+.card__media img,
+.card__inner img {
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card-wrapper:hover .card__media img,
+.product-card-wrapper:hover .card__inner img {
+  transform: scale(1.04);
+}
+
+/* Card info */
+.card__content .card__information {
+  padding: 12px 0 16px;
+  background: var(--altrd-pure-white);
+}
+
+.card__heading,
+.card__heading a,
+.card__heading.h5 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--altrd-black) !important;
+  text-transform: capitalize !important;
+  text-decoration: none !important;
+  margin-top: 10px !important;
+}
+
+/* Price styling */
+.price {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--altrd-black) !important;
+}
+
+.price--on-sale .price__regular,
+.price-item--regular {
+  color: #AAAAAA !important;
+  text-decoration: line-through !important;
+}
+
+.price-item--sale,
+.price--on-sale .price__sale {
+  color: var(--altrd-black) !important;
+}
+
+/* Sale / Sold out badge */
+.badge {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  padding: 3px 8px !important;
+  border-radius: 0 !important;
+}
+
+.badge--bottom-left {
+  top: 10px !important;
+  left: 10px !important;
+  bottom: auto !important;
+}
+
+.color-scheme-1 .badge,
+.badge.color-scheme-1 {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+  border: none !important;
+}
+
+/* Quick-add button */
+.quick-add {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.quick-add__submit {
+  width: 100%;
+  height: 42px !important;
+  background: rgba(10, 10, 10, 0.88) !important;
+  color: var(--altrd-white) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  opacity: 0;
+  transition: opacity 0.25s ease !important;
+}
+
+.product-card-wrapper:hover .quick-add__submit {
+  opacity: 1;
+}
+
+/* Section heading overrides */
+.collection__title .title,
+.collection__title h2 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--altrd-black) !important;
+}
+
+/* View all button */
+.collection .button--secondary.button--tertiary,
+.show-view-all .button {
+  background: transparent !important;
+  color: var(--altrd-black) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  border-radius: 0 !important;
+  height: 52px !important;
+  width: 100% !important;
+  margin-top: 40px;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  transition: all 0.22s ease !important;
+}
+.collection .button--secondary.button--tertiary:hover,
+.show-view-all .button:hover {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+  border-color: var(--altrd-black) !important;
+}
+
+/* ── EDITORIAL SPLIT ── */
+.altrd-editorial-section {
+  background: var(--altrd-pure-white);
+}
+
+.altrd-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.altrd-editorial-image-col {
+  overflow: hidden;
+  position: relative;
+}
+
+.altrd-editorial-img,
+.altrd-editorial-img-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 480px;
+}
+
+.altrd-editorial-text-col {
+  background: var(--altrd-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.altrd-editorial-text-inner {
+  padding: 80px 60px;
+  max-width: 480px;
+}
+
+.altrd-editorial-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--altrd-muted);
+  margin-bottom: 16px;
+}
+
+.altrd-editorial-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--altrd-black);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.altrd-editorial-body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 749px) {
+  .altrd-editorial-grid {
+    grid-template-columns: 1fr;
+  }
+  .altrd-editorial-text-inner {
+    padding: 40px 24px;
+  }
+  .altrd-editorial-img,
+  .altrd-editorial-img-placeholder {
+    min-height: 300px;
+  }
+}
+
+/* ── NEW DROP SECTION ── */
+.altrd-drop-section {
+  background: var(--altrd-black);
+  padding: 0;
+}
+
+.altrd-drop-inner {
+  padding: 80px 60px;
+  max-width: 900px;
+}
+
+.altrd-drop-kicker {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 235, 0.45);
+  margin-bottom: 16px;
+}
+
+.altrd-drop-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--altrd-white);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.altrd-drop-sub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(245, 240, 235, 0.55);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.altrd-drop-cta {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1.5px solid rgba(245, 240, 235, 0.5);
+  color: rgba(245, 240, 235, 0.85);
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.22s ease;
+  text-decoration: none;
+}
+.altrd-drop-cta:hover {
+  border-color: var(--altrd-white);
+  color: var(--altrd-white);
+  background: rgba(245, 240, 235, 0.08);
+}
+
+.altrd-drop-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 749px) {
+  .altrd-drop-inner { padding: 60px 24px; }
+}
+
+/* ── COLLECTION PAGE ── */
+/* Collection banner */
+.collection-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--altrd-black);
+}
+
+.collection-hero__inner {
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 40px 32px !important;
+  max-width: 100% !important;
+}
+
+.collection-hero__title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: clamp(3rem, 7vw, 6rem) !important;
+  letter-spacing: 0.02em !important;
+  color: var(--altrd-white) !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.collection-hero__description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(245, 240, 235, 0.6);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+@media (max-width: 749px) {
+  .collection-hero__inner {
+    min-height: 200px;
+    padding: 0 20px 24px !important;
+  }
+}
+
+/* Facet / filter bar */
+.facets-container,
+.facets-wrapper--top {
+  background: var(--altrd-pure-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 72px;
+  z-index: 100;
+  padding: 0 40px;
+}
+
+.facet-filters {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.facet-filters__label,
+.facet-filters__sort {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--altrd-black);
+  letter-spacing: 0.04em;
+}
+
+.active-facets__button {
+  border-radius: 40px !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  background: transparent !important;
+  color: var(--altrd-black) !important;
+  transition: all 0.18s ease !important;
+}
+.active-facets__button:hover,
+.active-facets__button.active {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+}
+
+/* Facet mobile drawer */
+.facets-mobile .mobile-facets__main {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@media (max-width: 749px) {
+  .facets-container,
+  .facets-wrapper--top {
+    padding: 0 20px;
+    overflow-x: auto;
+  }
+}
+
+/* ── PDP — PRODUCT DETAIL PAGE ── */
+.product {
+  background: var(--altrd-pure-white);
+}
+
+.product__info-wrapper {
+  padding: 48px 48px !important;
+  background: var(--altrd-pure-white);
+}
+
+/* Breadcrumb */
+.product__text.caption-with-letter-spacing {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--altrd-muted);
+  margin-bottom: 10px;
+}
+
+/* Product title */
+.product__title h1,
+.product__title .h1 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--altrd-black) !important;
+  line-height: 1.05 !important;
+  margin-bottom: 16px !important;
+}
+
+/* PDP price */
+#price-{{ section.id }} .price,
+.product__info-container .price {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin-bottom: 24px;
+}
+
+/* Size selector */
+.product-form__input--pill .select__select,
+.product-form__input .select__select {
+  border-radius: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  background: transparent !important;
+}
+
+.swatch-input__input,
+.product-form__input--pill label {
+  border-radius: 0 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  min-width: 48px !important;
+  height: 44px !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  color: var(--altrd-black) !important;
+  transition: all 0.18s ease !important;
+}
+
+.swatch-input__input:checked + label,
+.product-form__input--pill input:checked + label {
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+  border-color: var(--altrd-black) !important;
+}
+
+/* Add to cart button */
+.product-form__submit {
+  width: 100% !important;
+  height: 54px !important;
+  background: var(--altrd-black) !important;
+  color: var(--altrd-white) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  margin-top: 20px !important;
+  transition: background 0.2s ease !important;
+}
+.product-form__submit:hover {
+  background: var(--altrd-gray-dark) !important;
+}
+
+/* PDP accordion tabs */
+.product__accordion .accordion details {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+.product__accordion .accordion summary {
+  padding: 18px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--altrd-black);
+}
+
+.product__accordion .accordion__content {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #444;
+  padding-bottom: 18px;
+}
+
+/* Accordion arrow */
+.product__accordion .accordion details summary svg,
+.icon-accordion {
+  transition: transform 0.3s ease;
+}
+.product__accordion .accordion details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* PDP on mobile */
+@media (max-width: 749px) {
+  .product__info-wrapper {
+    padding: 24px 20px !important;
+  }
+
+  .product--medium .product__media-wrapper,
+  .product--large .product__media-wrapper {
+    width: 100% !important;
+  }
+}
+
+/* ── ON BODY SECTION ── */
+.altrd-on-body {
+  padding: 0 0 60px;
+  background: var(--altrd-pure-white);
+}
+
+.altrd-on-body-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.04em;
+  color: var(--altrd-black);
+  padding: 40px 40px 20px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.altrd-on-body-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 40px;
+}
+.altrd-on-body-row::-webkit-scrollbar { display: none; }
+
+.altrd-on-body-item {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.altrd-on-body-img {
+  width: auto;
+  height: 480px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+
+.altrd-on-body-caption {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--altrd-black);
+  margin-top: 8px;
+}
+
+@media (max-width: 749px) {
+  .altrd-on-body-title { padding: 32px 20px 16px; }
+  .altrd-on-body-row { padding: 0 20px; gap: 2px; }
+  .altrd-on-body-img { height: 300px; }
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--altrd-black) !important;
+  color: rgba(245, 240, 235, 0.8) !important;
+  padding: 80px 60px 40px !important;
+  margin-top: 0 !important;
+}
+
+.footer__content-top {
+  max-width: 100% !important;
+}
+
+.footer__blocks-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 40px 32px !important;
+}
+
+@media (max-width: 989px) {
+  .footer__blocks-wrapper { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer { padding: 60px 32px 32px !important; }
+}
+
+@media (max-width: 479px) {
+  .footer__blocks-wrapper { grid-template-columns: 1fr !important; }
+  .footer { padding: 48px 20px 24px !important; }
+}
+
+.footer-block__heading,
+.footer-block__heading.inline-richtext {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(245, 240, 235, 0.4) !important;
+  margin-bottom: 16px !important;
+}
+
+.footer-block__details-content a,
+.footer-block__details-content .link,
+.footer .link,
+.list-menu__item--link {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: rgba(245, 240, 235, 0.7) !important;
+  text-decoration: none !important;
+  line-height: 2.2 !important;
+  transition: color 0.2s ease !important;
+  letter-spacing: 0.01em !important;
+}
+.footer-block__details-content a:hover,
+.footer .link:hover,
+.list-menu__item--link:hover {
+  color: var(--altrd-white) !important;
+}
+
+/* Footer brand block */
+.footer-block__brand-info .footer-block__heading {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 28px !important;
+  letter-spacing: 0.04em !important;
+  color: var(--altrd-white) !important;
+  font-weight: 400 !important;
+}
+
+.footer-block__brand-info .rte,
+.footer-block__brand-info .rte p {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+  color: rgba(245, 240, 235, 0.5) !important;
+  line-height: 1.6 !important;
+}
+
+/* Social icons in footer */
+.footer__list-social .list-social__link,
+.footer .list-social__link {
+  color: rgba(245, 240, 235, 0.6) !important;
+  transition: color 0.2s ease !important;
+}
+.footer .list-social__link:hover { color: var(--altrd-white) !important; }
+
+/* Newsletter in footer */
+.footer-block--newsletter .footer-block__newsletter,
+.footer__newsletter {
+  background: transparent !important;
+}
+
+.footer-block--newsletter .footer-block__heading {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--altrd-white) !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  margin-bottom: 8px;
+}
+
+.footer .field__input,
+.footer-block--newsletter .field__input,
+.footer .newsletter-form input[type="email"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--altrd-white) !important;
+  border-radius: 0 !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+  height: 44px !important;
+}
+
+.footer .field__input::placeholder,
+.footer-block--newsletter .field__input::placeholder {
+  color: rgba(245, 240, 235, 0.35) !important;
+}
+
+.footer .newsletter-form__button,
+.footer-block--newsletter .newsletter-form__button {
+  background: var(--altrd-white) !important;
+  color: var(--altrd-black) !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.footer .field__label {
+  color: rgba(245, 240, 235, 0.35) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 13px !important;
+}
+
+/* Footer bottom bar */
+.footer__content-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+  margin-top: 60px !important;
+  padding-top: 24px !important;
+  background: var(--altrd-black) !important;
+}
+
+.footer__content-bottom-wrapper {
+  max-width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.footer__copyright,
+.copyright__content,
+.footer__copyright small {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important;
+  color: rgba(245, 240, 235, 0.35) !important;
+}
+
+.footer__copyright a {
+  color: rgba(245, 240, 235, 0.35) !important;
+  text-decoration: none !important;
+}
+
+.footer__payment {
+  background: transparent !important;
+}
+
+.footer__payment .icon--full-color {
+  opacity: 0.6;
+  filter: brightness(0.8);
+}
+
+/* Hide the "Powered by Shopify" in footer */
+.footer .powered-by-link,
+.footer [href*="shopify.com"] {
+  display: none !important;
+}
+
+/* ── ANIMATIONS ── */
+.altrd-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.altrd-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accordion transitions */
+.altrd-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.altrd-accordion-content.open {
+  max-height: 500px;
+}
+.altrd-accordion-arrow {
+  transition: transform 0.3s ease;
+}
+.altrd-accordion-item.open .altrd-accordion-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .altrd-header {
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+
+  .altrd-hero-headline {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+  .altrd-hero-cta-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .altrd-hero-btn-primary,
+  .altrd-hero-btn-ghost {
+    width: 100%;
+    text-align: center;
+    padding: 14px 24px;
+  }
+  .altrd-hero-content {
+    padding: 0 24px 60px;
+  }
+
+  .altrd-categories-inner { padding: 14px 20px; }
+
+  .altrd-editorial-grid { grid-template-columns: 1fr; }
+
+  .footer__blocks-wrapper { grid-template-columns: 1fr 1fr !important; }
+
+  h1 { font-size: clamp(2rem, 10vw, 4rem); }
+
+  .quick-add { display: none; }
+}
+
+@media (max-width: 480px) {
+  .footer__blocks-wrapper { grid-template-columns: 1fr !important; }
+  .altrd-hero-eyebrow { font-size: 10px; letter-spacing: 0.15em; }
+  .altrd-categories-inner { gap: 8px; }
+}
+
+/* ── REMOVE DAWN DEFAULT SECTION SPACING ON HERO ── */
+.shopify-section:has(.altrd-hero-section) {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shopify-section:has(.altrd-marquee-section),
+.shopify-section:has(.altrd-categories-section),
+.shopify-section:has(.altrd-drop-section) {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Fix Dawn collection section when full-width */
+.collection--full-width {
+  padding: 0 !important;
+}
+
+.collection--full-width .collection__title.title-wrapper {
+  padding: 40px 40px 24px !important;
+  margin: 0 !important;
+  max-width: 100%;
+}
+
+/* Ensure page grid uses full width on collection full-width */
+.slider-component-full-width {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+

@@ -1,0 +1,65 @@
+<div class="altrd-drop-section">
+  <div class="altrd-drop-inner">
+    <div class="altrd-drop-text">
+      {%- if section.settings.kicker != blank -%}
+        <p class="altrd-drop-kicker">{{ section.settings.kicker | escape }}</p>
+      {%- endif -%}
+      <h2 class="altrd-drop-headline">{{ section.settings.heading | default: 'LIMITED DROP — SHOP NOW' | escape }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p class="altrd-drop-sub">{{ section.settings.subtext | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a
+          href="{{ section.settings.cta_link | default: '/collections/all' }}"
+          class="altrd-drop-cta"
+        >
+          {{ section.settings.cta_label | escape }} →
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Altrd New Drop",
+  "tag": "section",
+  "class": "altrd-drop-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker / label",
+      "default": "SS26 DROP"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "LIMITED DROP — SHOP NOW"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Pieces run out fast. No restocks."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "View Drop"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Altrd New Drop"
+    }
+  ]
+}
+{% endschema %}

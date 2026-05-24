@@ -1,0 +1,100 @@
+<div class="altrd-editorial-section">
+  <div class="altrd-editorial-grid">
+    <div class="altrd-editorial-image-col">
+      {%- if section.settings.image != blank -%}
+        <img
+          class="altrd-editorial-img"
+          src="{{ section.settings.image | image_url: width: 1200 }}"
+          srcset="
+            {{ section.settings.image | image_url: width: 600 }} 600w,
+            {{ section.settings.image | image_url: width: 900 }} 900w,
+            {{ section.settings.image | image_url: width: 1200 }} 1200w
+          "
+          sizes="(min-width: 990px) 50vw, 100vw"
+          alt="{{ section.settings.image.alt | default: section.settings.heading | escape }}"
+          loading="lazy"
+          width="{{ section.settings.image.width }}"
+          height="{{ section.settings.image.height }}"
+        >
+      {%- else -%}
+        <div class="altrd-editorial-img-placeholder">
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="altrd-editorial-text-col">
+      <div class="altrd-editorial-text-inner">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="altrd-editorial-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="altrd-editorial-heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <p class="altrd-editorial-body">{{ section.settings.body | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.cta_label != blank -%}
+          <a
+            href="{{ section.settings.cta_link | default: '/collections/all' }}"
+            class="altrd-btn-primary"
+          >
+            {{ section.settings.cta_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Altrd Editorial Split",
+  "tag": "section",
+  "class": "altrd-editorial-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Editorial image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "The Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CRAFTED FOR THE SHIFT"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Every piece designed with intent. Minimal in form. Maximum in statement. Altrd Store is not for everyone — and that's exactly the point."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA button label",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Altrd Editorial Split"
+    }
+  ]
+}
+{% endschema %}

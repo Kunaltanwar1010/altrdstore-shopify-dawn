@@ -122,7 +122,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper altrd-header color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -425,6 +425,24 @@
 
   customElements.define('sticky-header', StickyHeader);
 {% endjavascript %}
+
+<script>
+  (function () {
+    var header = document.querySelector('.altrd-header');
+    var threshold = 80;
+    function onScroll() {
+      if (window.scrollY > threshold) {
+        document.body.classList.add('header-scrolled');
+      } else {
+        document.body.classList.remove('header-scrolled');
+      }
+    }
+    if (header) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  })();
+</script>
 
 <script type="application/ld+json">
   {

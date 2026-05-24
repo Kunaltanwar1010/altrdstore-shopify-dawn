@@ -1,0 +1,40 @@
+<div class="altrd-categories-section">
+  <div class="altrd-categories-scroll">
+    <div class="altrd-categories-inner">
+      {%- assign pill_links = section.settings.pill_links -%}
+      {%- assign pill_labels = section.settings.pill_labels | split: ',' -%}
+      {%- assign pill_urls = section.settings.pill_urls | split: ',' -%}
+
+      {%- assign default_pills = "All,New Arrivals,Tees,Hoodies,Shirts,Co-ords,Bottomwear,Women,Men" | split: ',' -%}
+      {%- assign default_paths = "/collections/all,/collections/new-arrivals,/collections/tees,/collections/hoodies,/collections/shirts,/collections/co-ords,/collections/bottomwear,/collections/women,/collections/men" | split: ',' -%}
+
+      {%- for label in default_pills -%}
+        {%- assign pill_url = default_paths[forloop.index0] -%}
+        {%- assign is_active = false -%}
+        {%- if collection and collection.handle == label | downcase | replace: ' ', '-' -%}
+          {%- assign is_active = true -%}
+        {%- endif -%}
+        <a
+          href="{{ pill_url }}"
+          class="altrd-category-pill{% if is_active %} altrd-category-pill--active{% endif %}"
+        >
+          {{ label }}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Altrd Category Pills",
+  "tag": "section",
+  "class": "altrd-categories-wrapper",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Altrd Category Pills"
+    }
+  ]
+}
+{% endschema %}
